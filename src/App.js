@@ -1,23 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Typography from '@material-ui/core/Typography';
+import { RISL, keycodesEmoji, keycodesText } from './constants';
+
+console.log(RISL, keycodesEmoji, keycodesText);
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Typography>键帽</Typography>
+        {keycodesEmoji.map((text, i) => (
+          <Typography variant="span" key={i}>
+            {text}
+          </Typography>
+        ))}
+        <br />
+        <Typography>数字</Typography>
+        {keycodesText.map((text, i) => (
+          <Typography variant="span" key={i}>
+            {text}
+          </Typography>
+        ))}
       </header>
     </div>
   );

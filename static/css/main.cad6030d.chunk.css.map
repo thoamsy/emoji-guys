@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,4BACE,sBACF","file":"main.cad6030d.chunk.css","sourcesContent":[".dropzone:-webkit-drag-over {\n  outline: 1px solid black;\n}\n"]}

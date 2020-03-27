@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/emoji-guys/static/css/main.cad6030d.chunk.css",
+    "main.js": "/emoji-guys/static/js/main.7bb337de.chunk.js",
+    "main.js.map": "/emoji-guys/static/js/main.7bb337de.chunk.js.map",
+    "runtime-main.js": "/emoji-guys/static/js/runtime-main.b5046036.js",
+    "runtime-main.js.map": "/emoji-guys/static/js/runtime-main.b5046036.js.map",
+    "static/js/2.e9f1ccff.chunk.js": "/emoji-guys/static/js/2.e9f1ccff.chunk.js",
+    "static/js/2.e9f1ccff.chunk.js.map": "/emoji-guys/static/js/2.e9f1ccff.chunk.js.map",
+    "index.html": "/emoji-guys/index.html",
+    "precache-manifest.c97604e45a05e665ad038c41ab2133ad.js": "/emoji-guys/precache-manifest.c97604e45a05e665ad038c41ab2133ad.js",
+    "service-worker.js": "/emoji-guys/service-worker.js",
+    "static/css/main.cad6030d.chunk.css.map": "/emoji-guys/static/css/main.cad6030d.chunk.css.map",
+    "static/js/2.e9f1ccff.chunk.js.LICENSE.txt": "/emoji-guys/static/js/2.e9f1ccff.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b5046036.js",
+    "static/js/2.e9f1ccff.chunk.js",
+    "static/css/main.cad6030d.chunk.css",
+    "static/js/main.7bb337de.chunk.js"
+  ]
+}

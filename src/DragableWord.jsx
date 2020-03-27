@@ -6,6 +6,9 @@ const DraggableWord = ({ children }) => {
     <span
       style={{
         cursor: isDragging ? 'grabbing' : 'grab',
+        width: 24,
+        height: 24,
+        margin: 4,
       }}
       draggable="true"
       onDragEnd={() => {
@@ -15,7 +18,10 @@ const DraggableWord = ({ children }) => {
         setDrag(true);
         event.dataTransfer.effectAllowed = 'link';
         event.dataTransfer.dropEffect = 'link';
-        event.dataTransfer.setData('text/plain', children.codePointAt(0));
+        event.dataTransfer.setData(
+          'text/plain',
+          [...children].map(a => a.codePointAt(0)),
+        );
       }}
       onDrag={e => {}}
     >

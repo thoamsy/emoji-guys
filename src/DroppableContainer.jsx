@@ -1,17 +1,30 @@
 import React, { useState } from 'react';
+import DragableWord from './DragableWord';
 
+const KEY = 'EMOJIS';
 const DroppableContainer = () => {
-  const [codes, setCodes] = useState([]);
+  const [codes, setCodes] = useState(() => {
+    const saved = localStorage.getItem(KEY);
+    if (!saved) {
+      return [];
+    }
+    return JSON.parse(saved);
+  });
 
   return (
     <div
       className="dropzone"
       onDrop={e => {
         const data = e.dataTransfer.getData('text/plain');
+        const isSequence = data.includes(',');
+
         e.preventDefault();
         setCodes(prevCode => {
-          console.log(prevCode);
-          return prevCode.concat(data);
+          const codes = prevCode.concat(
+            Array.of(isSequence ? data.split(',') : data),
+          );
+          localStorage.setItem(KEY, JSON.stringify(codes));
+          return codes;
         });
       }}
       onDragEnter={e => e.preventDefault()}
@@ -28,7 +41,15 @@ const DroppableContainer = () => {
         border: '1px dashed #e5e5e5',
       }}
     >
-      {String.fromCodePoint(...codes)}
+      {codes.map((code, index) => {
+        return (
+          <DragableWord key={index}>
+            {Array.isArray(code)
+              ? String.fromCodePoint(...code)
+              : String.fromCodePoint(code)}
+          </DragableWord>
+        );
+      })}
     </div>
   );
 };

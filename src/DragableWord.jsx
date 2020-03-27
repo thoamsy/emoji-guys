@@ -16,8 +16,6 @@ const DraggableWord = ({ children }) => {
       }}
       onDragStart={event => {
         setDrag(true);
-        event.dataTransfer.effectAllowed = 'link';
-        event.dataTransfer.dropEffect = 'link';
         event.dataTransfer.setData(
           'text/plain',
           [...children].map(a => a.codePointAt(0)),

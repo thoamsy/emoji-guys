@@ -10,6 +10,7 @@ const DroppableContainer = () => {
     }
     return JSON.parse(saved);
   });
+  const [isEntering, setEntering] = useState(false);
 
   return (
     <div
@@ -19,6 +20,7 @@ const DroppableContainer = () => {
         const isSequence = data.includes(',');
 
         e.preventDefault();
+        setEntering(false);
         setCodes(prevCode => {
           const codes = prevCode.concat(
             Array.of(isSequence ? data.split(',') : data),
@@ -27,7 +29,14 @@ const DroppableContainer = () => {
           return codes;
         });
       }}
-      onDragEnter={e => e.preventDefault()}
+      onDragLeave={() => {
+        setEntering(false);
+      }}
+      onDragEnter={e => {
+        e.dataTransfer.dropEffect = 'copy';
+        setEntering(true);
+        e.preventDefault();
+      }}
       onDragOver={e => {
         const isText = e.dataTransfer.types.includes('text/plain');
         e.dataTransfer.dropEffect = 'copy';
@@ -37,8 +46,9 @@ const DroppableContainer = () => {
       }}
       style={{
         height: 300,
-        width: 300,
-        border: '1px dashed #e5e5e5',
+        width: 600,
+        border: `4px dashed ${isEntering ? '#a0a0a0' : '#e5e5e5'}`,
+        background: isEntering ? '#fafafa' : '',
       }}
     >
       {codes.map((code, index) => {
